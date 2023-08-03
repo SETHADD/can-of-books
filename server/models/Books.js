@@ -7,6 +7,6 @@ const newBook = new Schema({
     year: Number
 });
 
-const Book = mongoose.model("Book",newBook);
+const Book = mongoose.model("AllBooks",newBook);
 
 module.exports = Book;
