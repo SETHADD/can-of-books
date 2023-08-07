@@ -9,20 +9,18 @@ app.use(cors());
 app.use(bp.json());
 // Create an endpoint to the root route
 
-const books = require("./models/Books")
-
+const Books = require("./models/Books");
 
 mongoose.connect(process.env.DATABASE_URL);
 
 app.get("/", (request, response) => {
-
   response.status(200).json("can I be heard?");
 });
 
-app.get("/books",async (request,response)=>{
-  const allBooks = books.find(request.query)
-  await response.status(200).json(allBooks.data)
-  console.log("we work fine")
-})
+app.get("/books", async (request, response) => {
+  const allBooks = await Books.find(request.query);
+  response.status(200).json(allBooks);
+  console.log("we work fine");
+});
 
 app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
