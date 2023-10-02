@@ -11,7 +11,7 @@ async function seed() {
   });
 
   await book.create({
-    title: "Good Man",
+    title: "Good Manno",
     author: "John Wick",
     year: "1992",
   });
